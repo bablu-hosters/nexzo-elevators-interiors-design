@@ -1,4 +1,4 @@
-<img width="1906" height="887" alt="Screenshot 2026-08-12 204817" src="https://github.com/user-attachments/assets/305edd8e-9c99-4f52-afe3-d83222eeab13" /># 🏢 NEXZO Elevators & Interiors
+# 🏢 NEXZO Elevators & Interiors
 
 <p align="center">
   <h2 align="center">NEXZO — Elevators & Interiors</h2>
@@ -6,7 +6,7 @@
     <b>Premium Elevator Solutions & Bespoke Interior Design</b>
   </p>
 </p>
-
+<img width="1906" height="887" alt="Screenshot 2026-08-12 204817" src="https://github.com/user-attachments/assets/305edd8e-9c99-4f52-afe3-d83222eeab13" />
 ---
 
 ## 🌐 Live Website
