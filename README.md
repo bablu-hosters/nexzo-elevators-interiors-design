@@ -19,9 +19,7 @@ NEXZO is a premium elevators and interiors brand combining precision engineering
 
 ## 📸 Website Preview
 
-<p align="center">
-  <img src="./images/nexzo-website.png" alt="NEXZO Elevators and Interiors Website" width="100%">
-</p>
+
 
 ---
 
