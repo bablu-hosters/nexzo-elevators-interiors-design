@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NEXZO | Contact Us - Elevators & Interiors</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<link rel="icon" type="img\Logo.png" sizes="32x32" href="https://nexzo.co.in/favicon-32x32.png">
+<link rel="icon" type="img\Logo.png" sizes="192x192" href="https://nexzo.co.in/android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nexzo.co.in/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nexzo",
+  "url": "https://nexzo.net.in/",
+  "logo": "https://nexzo.net.in/Logo.png"
+}
+</script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+            background-color: #fefefe;
+            color: #1e1e2a;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e4e4e8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b87c2e;
+            border-radius: 12px;
+        }
+
+        /* animations */
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(35px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* header */
+        header {
+            background: rgba(10, 10, 18, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0.9rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            height: 52px;
+            width: auto;
+            border-radius: 24px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #f0f0f0;
+            transition: 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover { color: #E4B77D; }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #E4B77D;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            color: #E4B77D;
+            cursor: pointer;
+        }
+
+        /* contact hero */
+        .contact-hero {
+            min-height: 40vh;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.65)), url('https://images.pexels.com/photos/1449739/pexels-photo-1449739.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center 40%;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        .contact-hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #f5e2be);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+        .contact-hero-content p {
+            font-size: 1.2rem;
+            color: #f0e6d8;
+            max-width: 700px;
+        }
+
+        /* contact main layout */
+        .contact-main {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 3rem;
+        }
+        .contact-info {
+            flex: 1;
+            min-width: 280px;
+            background: #fef8f0;
+            border-radius: 40px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+        }
+        .contact-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #2c2a2a;
+        }
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+        }
+        .info-icon {
+            width: 50px;
+            height: 50px;
+            background: #e4b77d20;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: #b87c2e;
+        }
+        .info-text h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+        .info-text p {
+            color: #5e5b55;
+        }
+        .social-contact {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+        }
+        .social-contact a {
+            background: #2a2622;
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #e4b77d;
+            transition: 0.25s;
+            font-size: 1.3rem;
+        }
+        .social-contact a:hover {
+            background: #b87c2e;
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        /* form */
+        .contact-form-container {
+            flex: 1.5;
+            min-width: 320px;
+            background: white;
+            border-radius: 40px;
+            padding: 2rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border: 1px solid rgba(184,124,46,0.15);
+        }
+        .contact-form-container h2 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-form-container p {
+            color: #6b6258;
+            margin-bottom: 1.8rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #2c2a2a;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 1.5px solid #e0d6cc;
+            border-radius: 30px;
+            font-size: 1rem;
+            transition: 0.25s;
+            font-family: inherit;
+            background: #fefcf9;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: #b87c2e;
+            box-shadow: 0 0 0 3px rgba(184,124,46,0.2);
+        }
+        .form-group textarea {
+            border-radius: 24px;
+            resize: vertical;
+        }
+        .submit-btn {
+            background: #b87c2e;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s;
+            width: 100%;
+            box-shadow: 0 6px 14px rgba(184,124,46,0.3);
+        }
+        .submit-btn:hover {
+            background: #9b6522;
+            transform: translateY(-2px);
+        }
+        .whatsapp-note {
+            text-align: center;
+            margin-top: 1.2rem;
+            font-size: 0.8rem;
+            color: #6c757d;
+        }
+        .whatsapp-note i {
+            color: #25D366;
+        }
+
+        /* map section */
+        .map-section {
+            max-width: 1300px;
+            margin: 2rem auto;
+            padding: 0 2rem 3rem;
+        }
+        .map-container {
+            border-radius: 40px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+        }
+
+        /* footer */
+        footer {
+            background: #0c0b0a;
+            color: #cccbc7;
+            padding: 2rem 2rem 1rem;
+            margin-top: 2rem;
+        }
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            color: #e4b77d;
+            margin-bottom: 1rem;
+        }
+        .footer-col a {
+            color: #b0aa9e;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+        .social-icons a {
+            background: #2a2622;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #e4b77d;
+            transition: 0.25s;
+        }
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: #b87c2e;
+            color: white;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            border-top: 1px solid #2f2b26;
+            margin-top: 2rem;
+        }
+
+        .floating-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 20px;
+            background: #b87c2e;
+            color: white;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            cursor: pointer;
+            z-index: 99;
+            transition: 0.2s;
+        }
+        .floating-btn:hover { transform: scale(1.1); background: #9b6522; }
+
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(10,10,18,0.98);
+                padding: 1rem;
+                border-radius: 28px;
+            }
+            .nav-links.active { display: flex; }
+            .menu-icon { display: block; }
+            .contact-hero-content h1 { font-size: 2.3rem; }
+            .contact-main { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+       <div class="logo-area">
+            <img src="img\logo (3).png" alt="NEXZO logo" style="height: 70px; border-radius: 40px;" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 210 65\'%3E%3Crect width=\'210\' height=\'65\' fill=\'%231d1915\' rx=\'14\'/%3E%3Ctext x=\'18\' y=\'44\' font-family=\'system-ui\' font-weight=\'800\' font-size=\'32\' fill=\'%23e4b77d\'%3EN%3C/text%3E%3Ctext x=\'45\' y=\'44\' font-size=\'27\' fill=\'%23d6b17e\'%3ENEXZO%3C/text%3E%3Ctext x=\'112\' y=\'30\' font-size=\'11\' fill=\'%23c9a063\'%3EELEVATORS%3C/text%3E%3Ctext x=\'112\' y=\'48\' font-size=\'11\' fill=\'%23bf9965\'%3EINTERIORS%3C/text%3E%3C/svg%3E';">
+        </div>
+        <div class="menu-icon" id="menuToggle">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="elevators.html">Elevators</a></li>
+            <li><a href="interiors.html">Interiors</a></li>
+             <li><a href="service.html">Areas</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <section class="contact-hero">
+        <div class="contact-hero-content">
+            <h1>Let's Connect</h1>
+            <p>Reach out to our team for personalized elevator solutions & premium interior designs. We're just a message away.</p>
+        </div>
+    </section>
+
+   
+
+        <!-- Right Side: Contact Form with WhatsApp Integration -->
+        <div class="contact-form-container animate-on-scroll">
+            <h2>Send us a Message</h2>
+            <p>Fill the details below and we'll get back to you instantly on WhatsApp.</p>
+            
+            <form id="contactForm">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name *</label>
+                    <input type="text" id="userName" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-mobile-alt"></i> Mobile Number *</label>
+                    <input type="tel" id="userMobile" placeholder="10-digit mobile number" pattern="[0-9]{10}" required>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-concierge-bell"></i> Service Required *</label>
+                    <select id="serviceType" required>
+                        <option value="">Select Service</option>
+                        <option value="Elevator Installation">🚀 Elevator Installation</option>
+                        <option value="Elevator Maintenance">🔧 Elevator Maintenance / AMC</option>
+                        <option value="Interior Design">✨ Interior Design & Fit-Outs</option>
+                        <option value="Both (Elevator + Interior)">🏢 Both (Elevator + Interior)</option>
+                        <option value="General Inquiry">📞 General Inquiry</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label><i class="fas fa-comment-dots"></i> Your Message</label>
+                    <textarea id="userMessage" rows="4" placeholder="Tell us about your project or requirements..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <i class="fab fa-whatsapp"></i> Submit & Send via WhatsApp
+                </button>
+                <div class="whatsapp-note">
+                    <i class="fab fa-whatsapp"></i> Your enquiry will be sent directly to our WhatsApp. We'll reply within minutes.
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Google Map Embed (Bangalore Location) -->
+    <div class="map-section">
+        <div class="map-container">
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61129.52107653585!2d78.0153966!3d16.74704445!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bca2603faaea475%3A0xc6e3676d440af165!2sMahbubnagar%2C%20Telangana!5e0!3m2!1sen!2sin!4v1779860756135!5m2!1sen!2sin" 
+                width="100%" 
+                height="350" 
+                style="border:0; border-radius: 32px;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>NEXZO ELEVATORS & INTERIORS</h4>
+            <p>Innovation in motion & design since 2012. Premium quality, timeless aesthetics.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/nexzo_elevators_interiors/?utm_source=chatgpt.com"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/917780266049?utm_source=chatgpt.com"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About</a></p>
+            <p><a href="gallery.html">Gallery</a></p>
+            <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-col">
+            <h4>Our Expertise</h4>
+            <p>✓ Residential Elevators</p>
+            <p>✓ Commercial Lifts</p>
+            <p>✓ Interior Fit-Outs</p>
+            <p>✓ AMC & Maintenance</p>
+        </div>
+        <div class="footer-col">
+            <h4>Reach Us</h4>
+              <p>📍 1-4-98/5/1,, New Town Mahabubnagar,,<br>Telangana State - 509001.</p>
+            <p>📞 +91 91-778 026 6049</p>
+            <p>✉️ nexzo.2446@gmail.com</p>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2026 NEXZO Elevators & Interiors | Crafted for seamless luxury mobility & design. All rights reserved. | <a href="https://babluhosters.com/" style="color:#f5f3ef;">Bablu Hosters</a>
+    </div>
+</footer>
+
+<div class="floating-btn" id="scrollTopBtn">⬆️</div>
+
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // scroll to top
+    const topBtn = document.getElementById('scrollTopBtn');
+    topBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // animate on scroll
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15, rootMargin: "0px 0px -40px 0px" });
+    animatedElements.forEach(el => observer.observe(el));
+
+    window.addEventListener('load', () => {
+        animatedElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('visible');
+                observer.unobserve(el);
+            }
+        });
+    });
+
+    // WhatsApp Integration: On form submit, send details to WhatsApp number
+    // Set your business WhatsApp number here (with country code, no '+' sign)
+    const WHATSAPP_NUMBER = "917780266049";  // Replace with actual NEXZO WhatsApp number
+    
+    const contactForm = document.getElementById('contactForm');
+    const submitBtn = document.getElementById('submitBtn');
+
+    contactForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Get form values
+        const userName = document.getElementById('userName').value.trim();
+        const userMobile = document.getElementById('userMobile').value.trim();
+        const serviceType = document.getElementById('serviceType').value;
+        const userMessage = document.getElementById('userMessage').value.trim();
+        
+        // Validation
+        if (!userName) {
+            alert('Please enter your full name.');
+            return;
+        }
+        if (!userMobile) {
+            alert('Please enter your mobile number.');
+            return;
+        }
+        if (userMobile.length !== 10 || !/^\d{10}$/.test(userMobile)) {
+            alert('Please enter a valid 10-digit mobile number.');
+            return;
+        }
+        if (!serviceType) {
+            alert('Please select a service.');
+            return;
+        }
+        
+        // Prepare WhatsApp message
+        const currentDateTime = new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+        let whatsappMsg = `*🏢 NEXZO - New Enquiry Received*%0A`;
+        whatsappMsg += `%0A📌 *Date & Time:* ${currentDateTime}%0A`;
+        whatsappMsg += `%0A👤 *Name:* ${userName}%0A`;
+        whatsappMsg += `📞 *Mobile:* ${userMobile}%0A`;
+        whatsappMsg += `🛠️ *Service:* ${serviceType}%0A`;
+        
+        if (userMessage) {
+            whatsappMsg += `💬 *Message:* ${userMessage}%0A`;
+        } else {
+            whatsappMsg += `💬 *Message:* No additional details provided.%0A`;
+        }
+        
+        whatsappMsg += `%0A🔔 *Action Required:* Please contact this lead at the earliest.`;
+        
+        // Create WhatsApp URL
+        const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${whatsappMsg}`;
+        
+        // Show success indicator and open WhatsApp in new tab
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Redirecting to WhatsApp...';
+        submitBtn.disabled = true;
+        
+        setTimeout(() => {
+            // Open WhatsApp chat
+            window.open(whatsappUrl, '_blank');
+            
+            // Reset button after slight delay
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 2000);
+            
+            // Optionally reset form after submission
+            // contactForm.reset();  // Uncomment if you want to reset, but keep for now
+            alert('✓ Enquiry prepared! WhatsApp will open now. Send the message to connect with our team.');
+        }, 500);
+        
+        // Also optionally store in console for debugging
+        console.log('WhatsApp Message Prepared:', whatsappMsg.replace(/%0A/g, '\n'));
+    });
+    
+    // Add input formatting for mobile number (only digits, max 10)
+    const mobileInput = document.getElementById('userMobile');
+    mobileInput.addEventListener('input', function(e) {
+        this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);
+    });
+</script>
+</body>
+</html>

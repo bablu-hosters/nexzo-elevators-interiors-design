@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NEXZO | Interior Design - Luxury Modular Interiors | Home & Office</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+<link rel="icon" type="img\Logo.png" sizes="32x32" href="https://nexzo.co.in/favicon-32x32.png">
+<link rel="icon" type="img\Logo.png" sizes="192x192" href="https://nexzo.co.in/android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://nexzo.co.in/apple-touch-icon.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nexzo",
+  "url": "https://nexzo.net.in/",
+  "logo": "https://nexzo.net.in/Logo.png"
+}
+</script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+            background-color: #fefefe;
+            color: #1e1e2a;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e4e4e8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b87c2e;
+            border-radius: 12px;
+        }
+
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(35px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* HEADER */
+        header {
+            background: rgba(4, 4, 7, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 4px 25px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0.9rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            height: 70px;
+            width: auto;
+            border-radius: 40px;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #f0f0f0;
+            transition: 0.3s;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: #E4B77D;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #E4B77D;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+        .nav-links a.active {
+            color: #E4B77D;
+        }
+        .nav-links a.active::after {
+            width: 100%;
+        }
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            color: #E4B77D;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: #b87c2e;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: 0.25s;
+            box-shadow: 0 6px 14px rgba(184,124,46,0.3);
+            font-size: 1rem;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-primary:hover {
+            background: #9b6522;
+            transform: translateY(-3px);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #b87c2e;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #b87c2e;
+            transition: 0.25s;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+        }
+        .btn-outline:hover {
+            background: #b87c2e;
+            color: white;
+        }
+
+        /* PAGE BANNER */
+        .page-banner {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.7)), url('https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=1600');
+            background-size: cover;
+            background-position: center;
+            padding: 5rem 2rem;
+            text-align: center;
+            color: white;
+        }
+        .page-banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .page-banner .highlight {
+            color: #e4b77d;
+        }
+        .banner-badges {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .banner-badge {
+            background: rgba(228,183,125,0.2);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1.5rem;
+            border-radius: 40px;
+            font-weight: 600;
+            border: 1px solid #e4b77d;
+        }
+
+        /* SECTION STYLES */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            width: 100%;
+        }
+        .section-title span {
+            background: linear-gradient(120deg, #b87c2e, #dba356);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .section-subtitle {
+            text-align: center;
+            color: #6b6b6b;
+            margin-bottom: 3rem;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Service Cards with Images */
+        .service-detail-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .service-detail-card {
+            background: white;
+            border-radius: 32px;
+            padding: 2rem;
+            width: 350px;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+            transition: all 0.4s;
+            border: 1px solid rgba(184,124,46,0.15);
+            text-align: center;
+        }
+        .service-detail-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 45px rgba(184,124,46,0.15);
+            border-color: #e4b77d;
+        }
+        .service-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 24px;
+            margin-bottom: 1.2rem;
+        }
+        .service-detail-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c2a2a;
+        }
+        .service-detail-card p {
+            color: #5e5b55;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .feature-badge {
+            display: inline-block;
+            background: #f5e6d3;
+            color: #b87c2e;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin: 0.3rem 0.2rem;
+        }
+
+        /* Portfolio Grid */
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .portfolio-item {
+            width: 280px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            background: white;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+        .portfolio-img {
+            height: 220px;
+            background-size: cover;
+            background-position: center;
+        }
+        .portfolio-item p {
+            padding: 1rem;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        /* Process Steps */
+        .process-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .step {
+            text-align: center;
+            width: 200px;
+        }
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: #b87c2e;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+
+        /* Why Choose Us */
+        .why-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .why-item {
+            text-align: center;
+            width: 220px;
+            padding: 1.5rem;
+        }
+        .why-item i {
+            font-size: 2.5rem;
+            color: #b87c2e;
+            margin-bottom: 1rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #1f1b16, #2a241e);
+            color: white;
+            border-radius: 48px;
+            padding: 3rem;
+            text-align: center;
+            margin: 2rem auto;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+       footer {
+            background: #0c0b0a;
+            color: #cccbc7;
+            padding: 2rem 2rem 1rem;
+            margin-top: 3rem;
+        }
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            color: #e4b77d;
+            margin-bottom: 1rem;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+        .social-icons a {
+            background: #2a2622;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #e4b77d;
+            transition: 0.25s;
+        }
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: #b87c2e;
+            color: white;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid #2f2b26;
+            margin-top: 2rem;
+        }
+        .floating-btn {
+            position: fixed;
+            bottom: 25px;
+            right: 20px;
+            background: #b87c2e;
+            color: white;
+            width: 52px;
+            height: 52px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+            cursor: pointer;
+            z-index: 99;
+        }
+
+        @media (max-width: 850px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: rgba(10,10,18,0.98);
+                padding: 1rem;
+                border-radius: 28px;
+                text-align: center;
+            }
+            .nav-links.active { display: flex; }
+            .menu-icon { display: block; }
+            .page-banner h1 { font-size: 2rem; }
+            .section-title { font-size: 1.8rem; }
+        }
+        @media (max-width: 550px) {
+            .service-detail-card { width: 100%; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+        }
+          /* FOOTER with real icons */
+        footer {
+            background: #0c0b0a;
+            color: #cccbc7;
+            padding: 2rem 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: #e4b77d;
+            margin-bottom: 1rem;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #b0aa9e;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+
+        /* Social Icons - Real Brand Colors & Hover Effects */
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #2a2622;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            color: #e4b77d;
+            font-size: 1.3rem;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: #b87c2e;
+            color: white;
+            box-shadow: 0 8px 18px rgba(184,124,46,0.4);
+        }
+
+        /* Individual hover brand hints */
+        .social-icons a:nth-child(1):hover { background: #E4405F; color: white; }
+        .social-icons a:nth-child(2):hover { background: #25D366; color: white; }
+        .social-icons a:nth-child(3):hover { background: #1877F2; color: white; }
+        .social-icons a:nth-child(4):hover { background: #FF0000; color: white; }
+
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            border-top: 1px solid #2f2b26;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo-area">
+            <img src="img\logo (3).png" alt="NEXZO logo" class="logo-img" onerror="this.src='https://placehold.co/200x70/e4b77d/1f1b16?text=NEXZO'">
+        </div>
+        <div class="menu-icon" id="menuToggle">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="elevators.html">Elevators</a></li>
+            <li><a href="interiors.html">Interiors</a></li>
+             <li><a href="service.html">Areas</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1><span class="highlight">NEXZO Interiors</span> — Where Luxury Meets Function</h1>
+        <p>Premium modular designs, Italian finishes & smart space planning for homes and offices</p>
+        <div class="banner-badges">
+            <span class="banner-badge">🏠 Modular Kitchens</span>
+            <span class="banner-badge">🚪 Wardrobes & Storage</span>
+            <span class="banner-badge">🛋️ Living & Dining</span>
+            <span class="banner-badge">📐 3D Visualization</span>
+        </div>
+    </section>
+
+    <!-- Interior Services We Offer - WITH IMAGES as shown in your reference -->
+    <div class="section">
+        <h2 class="section-title">Our <span>Interior Services</span></h2>
+        <p class="section-subtitle">Bespoke craftsmanship — every space tells your story</p>
+        
+        <div class="service-detail-grid">
+            <!-- Modular Kitchens Card -->
+            <div class="service-detail-card animate-on-scroll">
+                <img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Modular Kitchen" class="service-img" onerror="this.src='https://placehold.co/600x400/e4b77d/1f1b16?text=Modular+Kitchen'">
+                <h3>Modular Kitchens</h3>
+                <p>Italian laminates, soft-close mechanisms, and ergonomic layouts. Fully customized to your cooking style and space.</p>
+                <span class="feature-badge">Waterproof</span>
+                <span class="feature-badge">German Fittings</span>
+                <span class="feature-badge">100% Custom</span>
+            </div>
+            
+            <!-- Bedroom Design Card -->
+            <div class="service-detail-card animate-on-scroll">
+                <img src="https://images.pexels.com/photos/276724/pexels-photo-276724.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bedroom Design" class="service-img" onerror="this.src='https://placehold.co/600x400/e4b77d/1f1b16?text=Bedroom+Design'">
+                <h3>Bedroom Design</h3>
+                <p>Master bedrooms with headboards, bedside tables, study desks, and wardrobe integration. Relaxing aesthetics.</p>
+                <span class="feature-badge">Custom Upholstery</span>
+                <span class="feature-badge">Space Saving</span>
+                <span class="feature-badge">Eco Materials</span>
+            </div>
+            
+        
+            <!-- Office Interiors Card -->
+            <div class="service-detail-card animate-on-scroll">
+                <img src="https://images.pexels.com/photos/3184357/pexels-photo-3184357.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Office Interiors" class="service-img" onerror="this.src='https://placehold.co/600x400/e4b77d/1f1b16?text=Office+Interiors'">
+                <h3>Office Interiors</h3>
+                <p>Workstations, conference rooms, reception desks, and cabin partitions. Ergonomic and professional designs.</p>
+                <span class="feature-badge">Ergonomic</span>
+                <span class="feature-badge">Space Planning</span>
+                <span class="feature-badge">Fast Installation</span>
+            </div>
+        </div>
+    </div>
+
+    
+    <!-- Our Design Process -->
+    <div class="section">
+        <h2 class="section-title">Our <span>Design Process</span></h2>
+        <p class="section-subtitle">From concept to completion — transparent, efficient, and personalized</p>
+        <div class="process-steps">
+            <div class="step animate-on-scroll"><div class="step-number">1</div><h4>Consultation</h4><p>Understand needs & budget</p></div>
+            <div class="step animate-on-scroll"><div class="step-number">2</div><h4>3D Design</h4><p>Visualization & material selection</p></div>
+            <div class="step animate-on-scroll"><div class="step-number">3</div><h4>Fabrication</h4><p>Precision manufacturing</p></div>
+            <div class="step animate-on-scroll"><div class="step-number">4</div><h4>Installation</h4><p>Zero dust, minimal disruption</p></div>
+            <div class="step animate-on-scroll"><div class="step-number">5</div><h4>Handover</h4><p>Quality check & warranty</p></div>
+        </div>
+    </div>
+
+    <!-- Why Choose NEXZO Interiors -->
+    <div class="section" style="background: #f0ebe3; border-radius: 48px;">
+        <div style="max-width: 1300px; margin: 0 auto; text-align: center; padding: 1rem;">
+            <h2 class="section-title">Why Choose <span>NEXZO Interiors</span>?</h2>
+            <div class="why-grid">
+                
+                <div class="why-item"><i class="fas fa-cube"></i><h4>Modular Solutions</h4><p>Factory-made precision</p></div>
+                <div class="why-item"><i class="fas fa-clock"></i><h4>On-Time Delivery</h4><p>Guaranteed timelines</p></div>
+                <div class="why-item"><i class="fas fa-shield-alt"></i><h4>1 Year Warranty</h4><p>On modular products</p></div>
+                <div class="why-item"><i class="fas fa-charging-station"></i><h4>Zero Dust Install</h4><p>Clean & hassle-free</p></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Materials & Finishes -->
+    <div class="section">
+        <h2 class="section-title">Materials & <span>Finishes</span></h2>
+        <p class="section-subtitle">We use only the finest quality materials for lasting beauty</p>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+            <span class="feature-badge" style="background:#e4b77d; color:#1f1b16;">🇮🇹 Italian Laminate</span>
+            <span class="feature-badge" style="background:#e4b77d; color:#1f1b16;">🇩🇪 German Hardware</span>
+            <span class="feature-badge" style="background:#e4b77d; color:#1f1b16;">🌿 Eco-Friendly MDF</span>
+            <span class="feature-badge" style="background:#e4b77d; color:#1f1b16;">💧 Waterproof Ply</span>
+            <span class="feature-badge" style="background:#e4b77d; color:#1f1b16;">✨ Acrylic & Glass</span>
+            <span class="feature-badge" style="background:#e4b77d; color:#1f1b16;">🪵 Real Wood Veneer</span>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="section">
+        <div class="cta-section">
+            <h2>Ready to transform your space?</h2>
+            <p>Get a free 3D design consultation and quote within 24 hours</p>
+            <div class="cta-buttons">
+                <a href="contact.html" class="btn-primary" style="background: #e4b77d; color:#1f1b16;">📐 Book Free Consultation</a>
+                <a href="tel:+917780266049" class="btn-outline" style="border-color: #e4b77d; color:#e4b77d;">📞 Call: +91 778 026 6049</a>
+            </div>
+            <p style="margin-top: 1.5rem; font-size: 0.85rem;">✨ 100+ happy homes | 50+ commercial projects | 4.9 ⭐ rating</p>
+        </div>
+    </div>
+</main>
+
+<!-- FOOTER - Matching NEXZO Design -->
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>NEXZO ELEVATORS & INTERIORS</h4>
+            <p>Innovation in motion & design since 2012. Premium quality, timeless aesthetics.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/nexzo_elevators_interiors/?utm_source=chatgpt.com"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/917780266049?utm_source=chatgpt.com"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About</a></p>
+            <p><a href="gallery.html">Gallery</a></p>
+            <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-col">
+            <h4>Our Expertise</h4>
+            <p>✓ Residential Elevators</p>
+            <p>✓ Commercial Lifts</p>
+            <p>✓ Interior Fit-Outs</p>
+            <p>✓ AMC & Maintenance</p>
+        </div>
+        <div class="footer-col">
+            <h4>Reach Us</h4>
+              <p>📍 1-4-98/5/1,, New Town Mahabubnagar,,<br>Telangana State - 509001.</p>
+            <p>📞 +91 91-778 026 6049</p>
+            <p>✉️ nexzo.2446@gmail.com</p>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2026 NEXZO Elevators & Interiors | Crafted for seamless luxury mobility & design. All rights reserved. | <a href="https://babluhosters.com/" style="color:#f5f3ef;">Bablu Hosters</a>
+    </div>
+</footer>
+
+<div class="floating-btn" id="scrollTopBtn">⬆️</div>
+
+<script>
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    }
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            navLinks.classList.remove('active');
+        });
+    });
+
+    // Scroll to top button
+    const topBtn = document.getElementById('scrollTopBtn');
+    topBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Scroll animations
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.15 });
+    animatedElements.forEach(el => observer.observe(el));
+
+    window.addEventListener('load', () => {
+        animatedElements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add('visible');
+                observer.unobserve(el);
+            }
+        });
+    });
+</script>
+</body>
+</html>

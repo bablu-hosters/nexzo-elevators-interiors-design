@@ -1,0 +1,1045 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NEXZO | Premium Elevators & Bespoke Interiors</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://nexzo.co.in/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://nexzo.co.in/android-chrome-192x192.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://nexzo.co.in/apple-touch-icon.png">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nexzo",
+  "url": "https://nexzo.net.in/",
+  "logo": "https://nexzo.net.in/Logo.png"
+}
+</script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', system-ui, -apple-system, 'Roboto', sans-serif;
+            background-color: #fefefe;
+            color: #1e1e2a;
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e4e4e8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #b87c2e;
+            border-radius: 12px;
+        }
+
+        /* animations */
+        @keyframes fadeUp {
+            0% { opacity: 0; transform: translateY(35px);}
+            100% { opacity: 1; transform: translateY(0);}
+        }
+        @keyframes fadeInLeft {
+            from { opacity: 0; transform: translateX(-40px);}
+            to { opacity: 1; transform: translateX(0);}
+        }
+        @keyframes fadeInRight {
+            from { opacity: 0; transform: translateX(40px);}
+            to { opacity: 1; transform: translateX(0);}
+        }
+        @keyframes softGlow {
+            0% { box-shadow: 0 8px 20px rgba(184,124,46,0.2);}
+            100% { box-shadow: 0 20px 35px rgba(184,124,46,0.5);}
+        }
+        @keyframes pulse-green {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);}
+            70% { box-shadow: 0 0 0 12px rgba(37, 211, 102, 0);}
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);}
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.7s ease;
+        }
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* header */
+        header {
+            background: rgba(4, 4, 7, 0.94);
+            backdrop-filter: blur(14px);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: all 0.3s;
+        }
+        .nav-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0.9rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo-img {
+            height: 52px;
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+            transition: transform 0.2s ease;
+        }
+        .logo-text {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #F5E7D3, #E4B77D);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #f0f0f0;
+            transition: 0.3s;
+            position: relative;
+            font-size: 1rem;
+        }
+        .nav-links a:hover { color: #E4B77D; }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #E4B77D;
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after { width: 100%; }
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            color: #E4B77D;
+            cursor: pointer;
+        }
+        .btn-primary {
+            background: #b87c2e;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: white;
+            cursor: pointer;
+            transition: 0.25s;
+            box-shadow: 0 6px 14px rgba(184,124,46,0.3);
+            font-size: 0.95rem;
+        }
+        .btn-primary:hover {
+            background: #9b6522;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(184,124,46,0.4);
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #b87c2e;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #b87c2e;
+            transition: 0.25s;
+            cursor: pointer;
+        }
+        .btn-outline:hover {
+            background: #b87c2e;
+            color: white;
+            transform: scale(1.02);
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(rgba(28, 28, 28, 0.6), rgba(49, 49, 49, 0.65)), url('img/homepage.jpeg');
+            background-size: cover;
+            background-position: center 25%;
+            background-attachment: fixed;
+        }
+        .hero-content {
+            max-width: 900px;
+            animation: fadeUp 0.9s ease-out;
+            z-index: 2;
+        }
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #ffffff, #f5e2be);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1.2rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+        }
+        .hero-content p {
+            font-size: 1.3rem;
+            color: #f8f4ec;
+            margin: 1.5rem 0;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        .stats-grid {
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        .stat-item {
+            background: rgba(255,255,240,0.12);
+            backdrop-filter: blur(6px);
+            padding: 0.8rem 1.6rem;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #FFE6C7;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #E4B77D;
+        }
+
+        /* sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.6rem;
+            font-weight: 700;
+            margin-bottom: 3rem;
+        }
+        .section-title span {
+            background: linear-gradient(120deg, #b87c2e, #dba356);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        /* Image Gallery Sections - Elevators & Interiors */
+        .gallery-section {
+            padding: 4rem 2rem;
+            background: #fefaf5;
+        }
+        .gallery-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .gallery-title {
+            text-align: center;
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        .gallery-title span {
+            background: linear-gradient(135deg, #b87c2e, #dba356);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        .gallery-title i {
+            color: #b87c2e;
+            margin-right: 12px;
+        }
+        .image-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.8rem;
+            justify-content: center;
+        }
+        .gallery-card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            background: white;
+            border-radius: 28px;
+            overflow: hidden;
+            box-shadow: 0 20px 35px rgba(0,0,0,0.1);
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            cursor: pointer;
+        }
+        .gallery-card:hover, .gallery-card:active {
+            transform: translateY(-12px) scale(1.02);
+            box-shadow: 0 30px 45px rgba(184,124,46,0.25);
+        }
+        .gallery-img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .gallery-card:hover .gallery-img {
+            transform: scale(1.05);
+        }
+        .gallery-info {
+            padding: 1.2rem;
+            text-align: center;
+            background: white;
+        }
+        .gallery-info h4 {
+            font-size: 1.3rem;
+            color: #b87c2e;
+            margin-bottom: 0.4rem;
+        }
+        .gallery-info p {
+            color: #6b5a4a;
+            font-size: 0.9rem;
+        }
+        .interior-badge {
+            background: linear-gradient(135deg, #f5e7d3, #ecd9be);
+        }
+
+        /* Video Showcase Section - NEW AUTO-PLAY VIDEO SECTION */
+        .video-showcase {
+            background: #0b0a09;
+            padding: 4rem 2rem;
+            color: #f3ede7;
+        }
+        .video-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+        .video-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+        .video-card {
+            flex: 1;
+            min-width: 320px;
+            max-width: 500px;
+            height:700px
+            border-radius: 32px;
+            overflow: hidden;
+            background: #1f1c18;
+            box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+            transition: transform 0.4s ease, box-shadow 0.3s;
+            cursor: pointer;
+        }
+        .video-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 30px 50px rgba(184,124,46,0.3);
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            background: #000;
+        }
+        .video-wrapper video {
+            width: 100%;
+            height: auto;
+            display: block;
+            aspect-ratio: 16 / 9;
+            object-fit: cover;
+        }
+        .video-caption {
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: 500;
+            background: #1f1c18;
+        }
+        .video-caption h4 {
+            color: #e4b77d;
+            font-size: 1.3rem;
+            margin-bottom: 0.3rem;
+        }
+        .video-caption p {
+            font-size: 0.85rem;
+            color: #cdc6bc;
+        }
+        .video-badge {
+            display: inline-block;
+            background: #b87c2e20;
+            backdrop-filter: blur(4px);
+            border-radius: 40px;
+            padding: 0.2rem 1rem;
+            font-size: 0.75rem;
+            margin-top: 8px;
+            color: #e4b77d;
+        }
+
+        /* cards */
+        .cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2.5rem;
+            justify-content: center;
+        }
+        .service-card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 32px;
+            padding: 2rem 1.8rem;
+            width: 300px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+            box-shadow: 0 20px 35px rgba(0,0,0,0.08);
+            cursor: pointer;
+            border: 1px solid rgba(184,124,46,0.2);
+        }
+        .service-card:hover, .service-card:active {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 35px 50px rgba(184,124,46,0.25);
+            border-color: #e4b77d;
+            animation: softGlow 0.3s ease forwards;
+        }
+        .card-icon {
+            font-size: 3.8rem;
+            margin-bottom: 1rem;
+            color: #b87c2e;
+        }
+        .service-card h3 { font-size: 1.7rem; margin: 1rem 0; color: #2c2a2a; }
+        .service-card p { color: #5e5b55; line-height: 1.4; }
+
+        .showcase {
+            background: linear-gradient(125deg, #faf3e8, #f2e5d8), url('https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1200');
+            background-size: cover;
+            background-blend-mode: overlay;
+            border-radius: 48px;
+            margin: 2rem auto;
+        }
+        .dual-layout {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 248, 240, 0.9);
+            border-radius: 48px;
+            padding: 2.5rem;
+            backdrop-filter: blur(3px);
+        }
+        .info-block { flex: 1; min-width: 260px; }
+        .info-block h2 { font-size: 2.2rem; margin-bottom: 1rem; }
+        .feature-list { list-style: none; margin-top: 1rem; }
+        .feature-list li { margin: 0.9rem 0; display: flex; align-items: center; gap: 12px; font-size: 1rem; }
+        .feature-list li i { color: #b87c2e; width: 24px; }
+        .image-mock {
+            flex: 1;
+            background: linear-gradient(145deg, #dfcdb5, #f0e2d2);
+            border-radius: 40px;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #9b6a30;
+            box-shadow: 0 20px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .milestone-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .milestone-card {
+            background: #fff7ef;
+            border-radius: 32px;
+            padding: 1.8rem;
+            text-align: center;
+            flex: 1;
+            min-width: 160px;
+            transition: all 0.3s;
+            border-bottom: 4px solid #e4b77d;
+        }
+        .testimonial-slider {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
+        .testimonial-card {
+            background: #ffffffdd;
+            backdrop-filter: blur(8px);
+            border-radius: 36px;
+            padding: 2rem;
+            width: 320px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+        .partner-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2.5rem;
+            align-items: center;
+        }
+        .partner-logos span {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #7a643f;
+            background: #f8f0e4;
+            padding: 0.5rem 1.2rem;
+            border-radius: 60px;
+            transition: 0.2s;
+        }
+        .contact-cta {
+            background: #1f1b16;
+            color: #f0ede8;
+            border-radius: 40px;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        .contact-form {
+            max-width: 550px;
+            margin: 2rem auto 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .contact-form input, .contact-form textarea {
+            padding: 12px 20px;
+            border-radius: 60px;
+            border: none;
+            background: #2e2822;
+            color: white;
+            font-size: 0.95rem;
+            outline: none;
+        }
+        .contact-form textarea {
+            border-radius: 28px;
+            resize: vertical;
+        }
+       
+        /* FLOATING BUTTONS CONTAINER */
+        .floating-buttons {
+            position: fixed;
+            bottom: 25px;
+            right: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            z-index: 999;
+        }
+        .floating-btn {
+            background: #b87c2e;
+            color: white;
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transition: all 0.25s ease;
+            text-decoration: none;
+            border: none;
+        }
+        .floating-btn:hover {
+            transform: scale(1.1);
+        }
+        .whatsapp-float {
+            background: #25D366;
+            box-shadow: 0 8px 22px rgba(37, 211, 102, 0.4);
+            animation: pulse-green 1.8s infinite;
+        }
+        .whatsapp-float:hover {
+            background: #20b859;
+            animation: none;
+            transform: scale(1.1);
+        }
+        .scroll-top-btn {
+            background: #b87c2e;
+        }
+        button {
+            background: linear-gradient(135deg, #705919, #d1c177);
+            color: #fff;
+            padding: 15px 42px;
+            border: none;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        button:hover { transform: scale(1.02); background: linear-gradient(135deg, #99390c, #ce481f);}
+        
+        @media (max-width: 850px) {
+            .nav-links { display: none; flex-direction: column; width: 100%; background: rgba(10,10,18,0.98); backdrop-filter: blur(12px); padding: 1rem; border-radius: 28px; margin-top: 1rem; text-align: center; }
+            .nav-links.active { display: flex; }
+            .menu-icon { display: block; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+            .hero { background-attachment: scroll; }
+            .stats-grid { gap: 1rem; }
+            .floating-buttons { bottom: 20px; right: 16px; gap: 12px; }
+            .floating-btn { width: 48px; height: 48px; font-size: 1.5rem; }
+            .gallery-title { font-size: 1.8rem; }
+            .gallery-card { min-width: 260px; }
+            .video-card { min-width: 280px; }
+        }
+        @media (max-width: 550px) {
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn-primary, .btn-outline { width: 80%; }
+        }
+        footer {
+            background: #0c0b0a;
+            color: #cccbc7;
+            padding: 2rem 2rem 1rem;
+            margin-top: 3rem;
+        }
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .footer-col h4 { color: #e4b77d; margin-bottom: 1rem; }
+        .footer-col p, .footer-col a { color: #b0aa9e; text-decoration: none; line-height: 1.6; }
+        .social-icons {
+            display: flex;
+            gap: 1.2rem;
+            margin-top: 0.8rem;
+        }
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #2a2622;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            color: #e4b77d;
+            font-size: 1.3rem;
+            transition: all 0.25s ease;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: #b87c2e;
+            color: white;
+            box-shadow: 0 8px 18px rgba(184,124,46,0.4);
+        }
+        .social-icons a:nth-child(1):hover { background: #E4405F; color: white; }
+        .social-icons a:nth-child(2):hover { background: #25D366; color: white; }
+        .social-icons a:nth-child(3):hover { background: #1877F2; color: white; }
+        .social-icons a:nth-child(4):hover { background: #FF0000; color: white; }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            border-top: 1px solid #2f2b26;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo-area">
+            <img src="img\logo (3).png" alt="NEXZO logo" style="height: 70px; border-radius: 40px;" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 210 65\'%3E%3Crect width=\'210\' height=\'65\' fill=\'%231d1915\' rx=\'14\'/%3E%3Ctext x=\'18\' y=\'44\' font-family=\'system-ui\' font-weight=\'800\' font-size=\'32\' fill=\'%23e4b77d\'%3EN%3C/text%3E%3Ctext x=\'45\' y=\'44\' font-size=\'27\' fill=\'%23d6b17e\'%3ENEXZO%3C/text%3E%3Ctext x=\'112\' y=\'30\' font-size=\'11\' fill=\'%23c9a063\'%3EELEVATORS%3C/text%3E%3Ctext x=\'112\' y=\'48\' font-size=\'11\' fill=\'%23bf9965\'%3EINTERIORS%3C/text%3E%3C/svg%3E';">
+        </div>
+        <div class="menu-icon" id="menuToggle">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="elevators.html">Elevators</a></li>
+            <li><a href="interiors.html">Interiors</a></li>
+             <li><a href="service.html">Areas</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>NEXZO<br> Elevators & Interiors</h1>
+            <p>Where German precision meets Italian artistry. Complete elevator solutions + luxury interior design for residences, malls, hotels & corporate spaces. Selling, installation, AMC, and bespoke craftsmanship.</p>
+            <div class="stats-grid">
+                <div class="stat-item"><span class="stat-number">450+</span><br>Projects</div>
+                <div class="stat-item"><span class="stat-number">28+</span><br>Cities</div>
+                <div class="stat-item"><span class="stat-number">100%</span><br>Satisfaction</div>
+                <div class="stat-item"><span class="stat-number">24/7</span><br>Support</div>
+            </div>
+            <div class="hero-buttons" style="margin-top: 2rem;">
+                <button class="btn-primary" onclick="document.getElementById('contactSec').scrollIntoView({behavior:'smooth'})">Get Free Consultation</button>
+                <button class="btn-outline" onclick="alert('Explore our premium elevator models & interior design catalog.')">Download Brochure</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ELEVATORS IMAGE GALLERY SECTION ========== -->
+    <div class="gallery-section animate-on-scroll">
+        <div class="gallery-container">
+            <div class="gallery-title">
+                <i class="fas fa-elevator"></i> <span>Our Premium Elevators</span>
+            </div>
+            <div class="image-grid">
+                <div class="gallery-card">
+                    <img class="gallery-img" src="img\nexzoo.jpeg" alt="Modern Glass Elevator" loading="lazy" onerror="this.src='https://placehold.co/600x400/dfcdb5/9b6a30?text=Modern+Elevator'">
+                </div>
+                <div class="gallery-card">
+                    <img class="gallery-img" src="img\left3.jpeg" alt="Luxury Home Elevator" loading="lazy" onerror="this.src='https://placehold.co/600x400/dfcdb5/9b6a30?text=Luxury+Elevator'">
+                </div>
+                <div class="gallery-card">
+                    <img class="gallery-img" src="img\lieft1.jpeg" alt="Commercial Elevator" loading="lazy" onerror="this.src='https://placehold.co/600x400/dfcdb5/9b6a30?text=Commercial+Elevator'">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== ELEVATOR VIDEO SHOWCASE (AUTOPLAY + MUTED) ========== -->
+    <div class="video-showcase animate-on-scroll" id="elevatorVideoSection">
+        <div class="video-container">
+            <div class="gallery-title" style="color: #f3ede7;">
+                <i class="fas fa-video"></i> <span style="background: linear-gradient(135deg,#E4B77D,#f5e2be); -webkit-background-clip:text;">See Elevators in Motion</span>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 1rem; opacity: 0.9;">Experience german-engineered lifts & panoramic elegance — cinematic visuals, smooth rides.</p>
+            <div class="video-grid">
+                <!-- Video 1: Modern Panoramic Elevator -->
+                
+                <!-- Video 2: Luxury Home Elevator interior with fine finishes -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video autoplay muted loop playsinline preload="metadata" class="auto-video">
+                            <source src="videos\video.mp4" type="video/mp4">
+                        </video>
+                        
+                    </div>
+                   
+                </div>
+                 <div class="video-card">
+                    <div class="video-wrapper">
+                        <video autoplay muted loop playsinline preload="metadata" class="auto-video">
+                            <source src="videos\elevatorsvideo9.mp4" type="video/mp4">
+                        </video>
+                        
+                    </div>
+                   
+                </div>
+                 <div class="video-card">
+                    <div class="video-wrapper">
+                        <video autoplay muted loop playsinline preload="metadata" class="auto-video">
+                            <source src="videos\elevatorsvideo10.mp4" type="video/mp4">
+                        </video>
+                        
+                    </div>
+                   
+                </div>
+
+
+
+                <!-- Video 3: High-speed commercial elevator with futuristic design -->
+                
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== INTERIORS IMAGE GALLERY SECTION ========== -->
+    <div class="gallery-section interior-badge animate-on-scroll">
+        <div class="gallery-container">
+            <div class="gallery-title">
+                <i class="fas fa-couch"></i> <span>Bespoke Interiors</span>
+            </div>
+            <div class="image-grid">
+                <div class="gallery-card">
+                    <img class="gallery-img" src="img/kitchen (2).jpeg" alt="Modular Kitchen" loading="lazy" onerror="this.src='https://placehold.co/600x400/f5e7d3/b87c2e?text=Modular+Kitchen'">
+                </div>
+                <div class="gallery-card">
+                    <img class="gallery-img" src="img/hall.jpeg" alt="Luxury Wardrobes" loading="lazy" onerror="this.src='https://placehold.co/600x400/f5e7d3/b87c2e?text=Luxury+Wardrobes'">
+                </div>
+                <div class="gallery-card">
+                    <img class="gallery-img" src="img/bedroom.jpeg" alt="False Ceiling & Decor" loading="lazy" onerror="this.src='https://placehold.co/600x400/f5e7d3/b87c2e?text=False+Ceiling'">
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- ========== ELEVATOR VIDEO SHOWCASE (AUTOPLAY + MUTED) ========== -->
+    <div class="video-showcase animate-on-scroll" id="elevatorVideoSection">
+        <div class="video-container">
+            <div class="gallery-title" style="color: #f3ede7;">
+                <i class="fas fa-video"></i> <span style="background: linear-gradient(135deg,#E4B77D,#f5e2be); -webkit-background-clip:text;">See Interiors in Motion</span>
+            </div>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto 1rem; opacity: 0.9;">NEXZO elevates lifestyles and transforms spaces with precision and passion..</p>
+            <div class="video-grid">
+                <!-- Video 1: Modern Panoramic Elevator -->
+                
+                <!-- Video 2: Luxury Home Elevator interior with fine finishes -->
+                <div class="video-card">
+                    <div class="video-wrapper">
+                        <video autoplay muted loop playsinline preload="metadata" class="auto-video">
+                            <source src="videos\interiorsvedo1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                   
+                </div>
+
+                   <div class="video-card">
+                    <div class="video-wrapper">
+                        <video autoplay muted loop playsinline preload="metadata" class="auto-video">
+                            <source src="videos\interiorsvideo3.mp4" type="video/mp4">
+                        </video>
+                        
+                    </div>
+                   
+                </div>
+
+                   <div class="video-card">
+                    <div class="video-wrapper">
+                        <video autoplay muted loop playsinline preload="metadata" class="auto-video">
+                            <source src="videos\interiorsvideo2.mp4" type="video/mp4">
+                        </video>
+                        
+                    </div>
+                   
+                </div>
+
+                <!-- Video 3: High-speed commercial elevator with futuristic design -->
+                
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Our Core Offerings Section -->
+    <div class="section" id="services">
+        <h2 class="section-title">Our <span>Core Offerings</span></h2>
+        <div class="cards-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="card-icon"><i class="fas fa-elevator"></i></div>
+                <h3>ELEVATORS</h3>
+                <p>Hydraulic, Traction, MRL, Panoramic & Hospital lifts. Energy-efficient, safety-certified, smart IoT-enabled.</p>
+                <ul style="text-align:left; margin-top:12px; list-style:none;"><li>✅ 1-Year Warranty</li><li>✅ Custom cab finishes</li><li>✅ 40% less power</li></ul>
+                <a href="elevators.html"><button  style="margin-top: 15px;">Click here!</button></a>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="card-icon"><i class="fas fa-couch"></i></div>
+                <h3>INTERIORS</h3>
+                <p>Modular kitchens, wardrobes, false ceilings, premium wallpapers, Italian marble & smart home integration.</p>
+                <ul style="text-align:left; margin-top:12px; list-style:none;"><li>✅ 3D design renders</li><li>✅ Turnkey execution</li><li>✅ Luxury furniture</li></ul>
+                <a href="interiors.html"><button style="margin-top: 15px;">Click here!</button></a>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="card-icon"><i class="fas fa-tools"></i></div>
+                <h3>AMC & Maintenance</h3>
+                <p>Annual maintenance contracts, emergency breakdown support, spare parts & modernization.</p>
+                <ul style="text-align:left; margin-top:12px; list-style:none;"><li>✅ 24/7 helpline</li><li>✅ OEM certified spares</li><li>✅ Free health audit</li></ul>
+                <button onclick="alert('📞 Call +91 91-778 026 6049 for AMC quotes')">Get AMC Quote</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="section showcase">
+        <div class="dual-layout">
+            <div class="info-block animate-on-scroll">
+                <h2>Seamless <span style="color:#b87c2e">elevation & design</span></h2>
+                <p>We don't just install elevators — we integrate them into your interior story. From panoramic glass lifts to cozy home elevators wrapped in wood & metals. Our designers harmonize lift aesthetics with your decor language.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-gem"></i> Custom cabin designs (mirror, LED, leather)</li>
+                    <li><i class="fas fa-compress-alt"></i> Space-saving MRL elevators</li>
+                    <li><i class="fas fa-palette"></i> Complete interior renovation & styling</li>
+                    <li><i class="fas fa-key"></i> Turnkey projects: elevator + lobby + modular kitchen</li>
+                </ul>
+                <button class="btn-primary" onclick="alert('✨ Over 300+ successful turnkey projects! Request a callback.')">View Portfolio</button>
+            </div>
+            <div class="image-mock">
+                <i class="fas fa-building" style="font-size: 4rem; margin-right: 12px;"></i> 
+                <span>Luxury Elevator + Interior Demo</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Why <span>NEXZO Stands Out</span></h2>
+        <div class="milestone-grid">
+            <div class="milestone-card"><i class="fas fa-trophy" style="font-size: 2.5rem; color:#b87c2e;"></i><h3>10+ Years</h3><p>Industry leadership & innovation</p></div>
+            <div class="milestone-card"><i class="fas fa-users" style="font-size: 2.5rem; color:#b87c2e;"></i><h3>5000+ Families</h3><p>Trusted installations globally</p></div>
+            <div class="milestone-card"><i class="fas fa-certificate" style="font-size: 2.5rem; color:#b87c2e;"></i><h3>ISO 9001:2024</h3><p>Certified quality processes</p></div>
+            <div class="milestone-card"><i class="fas fa-clock" style="font-size: 2.5rem; color:#b87c2e;"></i><h3>Same-Day Service</h3><p>Emergency support squad</p></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Client <span>Love</span></h2>
+        <div class="testimonial-slider">
+            <div class="testimonial-card"><i class="fas fa-quote-left" style="color:#b87c2e; font-size: 1.8rem;"></i><p style="margin: 1rem 0;">"NEXZO transformed our 5-floor villa with a sleek home elevator and stunning interior decor. Professional team and flawless finish."</p><h4>- Rajesh K., Hyderabad</h4></div>
+            <div class="testimonial-card"><i class="fas fa-quote-left" style="color:#b87c2e; font-size: 1.8rem;"></i><p style="margin: 1rem 0;">"Best decision for our boutique hotel. The elevator and lobby design wowed our guests. Maintenance team is prompt!"</p><h4>- Meera S., Pune</h4></div>
+            <div class="testimonial-card"><i class="fas fa-quote-left" style="color:#b87c2e; font-size: 1.8rem;"></i><p style="margin: 1rem 0;">"Incredible craftsmanship in modular kitchen & wardrobe plus smooth elevator installation. Highly recommended."</p><h4>- Anil V., Bangalore</h4></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2 class="section-title">Our <span>Partners & Certifications</span></h2>
+        <div class="partner-logos">
+            <span><i class="fas fa-industry"></i> Otis Technology</span>
+            <span><i class="fas fa-microchip"></i> Schindler Alliance</span>
+            <span><i class="fas fa-drafting-compass"></i> Italian Design Guild</span>
+            <span><i class="fas fa-shield-alt"></i> Green Elevator Council</span>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>NEXZO ELEVATORS & INTERIORS</h4>
+            <p>Innovation in motion & design since 2012. Premium quality, timeless aesthetics.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/nexzo_elevators_interiors/?utm_source=chatgpt.com"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/917780266049?utm_source=chatgpt.com"><i class="fab fa-whatsapp"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About</a></p>
+            <p><a href="#">Services</a></p>
+            <p><a href="gallery.html">Gallery</a></p>
+            <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-col">
+            <h4>Our Expertise</h4>
+            <p>✓ Residential Elevators</p>
+            <p>✓ Commercial Lifts</p>
+            <p>✓ Interior Fit-Outs</p>
+            <p>✓ AMC & Maintenance</p>
+        </div>
+        <div class="footer-col">
+            <h4>Reach Us</h4>
+            <p>📍 1-4-98/5/1,, New Town Mahabubnagar,,<br>Telangana State - 509001.</p>
+            <p>📞 +91 91-778 026 6049</p>
+            <p>✉️ nexzo.2446@gmail.com</p>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2026 NEXZO Elevators & Interiors | Crafted for seamless luxury mobility & design. All rights reserved. | <a href="https://babluhosters.com/" style="color:#f5f3ef;">Bablu Hosters</a>
+    </div>
+</footer>
+
+<!-- Floating Action Buttons: WhatsApp + Scroll to Top -->
+<div class="floating-buttons">
+    <a href="https://wa.me/917780266049?utm_source=chatgpt.com" 
+       target="_blank" 
+       rel="noopener noreferrer" 
+       class="floating-btn whatsapp-float" 
+       aria-label="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <div class="floating-btn scroll-top-btn" id="scrollTopBtn" aria-label="Scroll to top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+</div>
+
+<script>
+    // Video autoplay enforcement: ensure that all videos with .auto-video start playing on load & intersection (restart if needed)
+    document.addEventListener("DOMContentLoaded", function() {
+        const videos = document.querySelectorAll('.auto-video');
+        videos.forEach(video => {
+            // attempt play; also listen for user scroll / load 
+            video.muted = true;
+            video.setAttribute('playsinline', '');
+            video.play().catch(e => console.log("Autoplay prevented? user interaction needed", e));
+            // re-trigger when visible (optional but helpful)
+        });
+        // Intersection observer to re-trigger playback when video card enters viewport (ensures autoplay)
+        const observerVideo = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if(entry.isIntersecting) {
+                    const vid = entry.target.querySelector('video');
+                    if(vid && vid.paused) {
+                        vid.play().catch(e => console.log("play on view fail", e));
+                    }
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelectorAll('.video-card').forEach(card => observerVideo.observe(card));
+    });
+
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    if(menuToggle) menuToggle.addEventListener('click', ()=> navLinks.classList.toggle('active'));
+    document.querySelectorAll('.nav-links a').forEach(link=> link.addEventListener('click',()=> navLinks.classList.remove('active')));
+    document.getElementById('scrollTopBtn').addEventListener('click',()=> window.scrollTo({top:0,behavior:'smooth'}));
+    
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    const observer = new IntersectionObserver((entries)=> { entries.forEach(entry=> { if(entry.isIntersecting) { entry.target.classList.add('visible'); observer.unobserve(entry.target); } }); }, { threshold: 0.15 });
+    animatedElements.forEach(el=> observer.observe(el));
+    
+    window.showElevatorInfo = ()=> alert("🏢 NEXZO Elevators: Hydraulic, Traction & MRL models. Safety certified + smart technology. Request a brochure!");
+    window.showInteriorInfo = ()=> alert("🛋️ NEXZO Interiors: Modular kitchens, wardrobes, false ceilings, and premium decor. Get a free design consultation!");
+    
+    const form = document.getElementById('quoteForm');
+    if(form){
+        form.addEventListener('submit',(e)=>{
+            e.preventDefault();
+            let name = document.getElementById('userName')?.value.trim();
+            let email = document.getElementById('userEmail')?.value.trim();
+            let phone = document.getElementById('userPhone')?.value.trim();
+            if(!name || !email || !phone) { alert('Please fill in all required fields'); return; }
+            if(!email.includes('@')){ alert('Enter valid email'); return; }
+            alert(`Thank you ${name}! Our team will reach out within 24 hours regarding elevator/interior services.`);
+            form.reset();
+        });
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor=>{
+        anchor.addEventListener('click',function(e){
+            let hash = this.getAttribute('href');
+            if(hash==="#") return;
+            let target = document.querySelector(hash);
+            if(target){ e.preventDefault(); window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });}
+        });
+    });
+    window.addEventListener('load',()=>{ animatedElements.forEach(el=>{ if(el.getBoundingClientRect().top < window.innerHeight-100) el.classList.add('visible'); }); });
+    
+    const allCards = document.querySelectorAll('.service-card, .testimonial-card, .milestone-card, .gallery-card');
+    allCards.forEach(card => {
+        card.addEventListener('touchstart', function() { this.style.transform = 'scale(0.99)'; setTimeout(()=> this.style.transform = '', 150); });
+    });
+</script>
+</body>
+</html>

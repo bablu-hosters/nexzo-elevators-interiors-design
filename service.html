@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NEXZO | Elevator & Interior Services – Hyderabad, Warangal, Nagar Kurnool & more</title>
+    <!-- Font Awesome 6 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Nexzo",
+  "url": "https://nexzo.net.in/",
+  "logo": "https://nexzo.net.in/Logo.png"
+}
+</script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', 'Poppins', 'Roboto', sans-serif;
+            background: #fefaf5;
+            color: #1e1b17;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 1.5rem 1.2rem;
+        }
+
+        /* header styles - fixed menu */
+        .site-header {
+            background: #0f0e0c;
+            color: white;
+            padding: 0.8rem 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+        }
+        .header-flex {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+        }
+        .logo-area img {
+            height: 60px;
+            border-radius: 30px;
+        }
+        
+        /* Navigation - properly styled */
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        .nav-links li a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #f0f0f0;
+            transition: 0.3s;
+            position: relative;
+            font-size: 1rem;
+            padding: 0.5rem 0;
+        }
+        .nav-links li a:hover {
+            color: #E4B77D;
+        }
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background: #E4B77D;
+            transition: width 0.3s ease;
+        }
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+        .nav-links li a.active {
+            color: #E4B77D;
+        }
+        .menu-icon {
+            display: none;
+            font-size: 1.8rem;
+            color: #E4B77D;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        /* hero */
+        .hero {
+            background: #1e1b16;
+            border-radius: 2rem;
+            padding: 2.8rem 1.8rem;
+            margin: 1.2rem 0 1.5rem 0;
+            text-align: center;
+            color: #f8f2e8;
+        }
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.8rem;
+        }
+        .hero h1 i {
+            color: #e4b77d;
+            margin-right: 6px;
+        }
+        .hero p {
+            max-width: 750px;
+            margin: 1rem auto 0;
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2rem 0 1.2rem 0;
+            border-left: 5px solid #b87c2e;
+            padding-left: 1rem;
+        }
+        .section-title i {
+            color: #b87c2e;
+            margin-right: 10px;
+        }
+
+        /* location cards */
+        .location-group {
+            display: flex;
+            flex-direction: column;
+            gap: 1.4rem;
+            margin: 1.8rem 0;
+        }
+        .location-block {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.4rem 1.5rem;
+            box-shadow: 0 6px 14px rgba(0,0,0,0.03);
+            border: 1px solid #f0e4d4;
+            transition: all 0.2s;
+        }
+        .location-block:hover {
+            border-color: #e4b77d80;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.04);
+        }
+        .location-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #b87c2e;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .service-badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 0.7rem 0 0.9rem 0;
+        }
+        .badge {
+            background: #f9f1e8;
+            padding: 0.2rem 0.9rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #a56f2c;
+        }
+        .location-desc {
+            color: #2d2a24;
+            line-height: 1.55;
+            font-size: 0.95rem;
+        }
+        .location-desc p {
+            margin-bottom: 0.6rem;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        .service-card {
+            background: #ffffffea;
+            border-radius: 1.8rem;
+            padding: 1.6rem;
+            border: 1px solid #f2e5d8;
+        }
+        .service-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.7rem;
+            color: #2c241c;
+        }
+        .service-card h3 i {
+            color: #b87c2e;
+            margin-right: 10px;
+        }
+        .highlight-list {
+            list-style: none;
+            margin-top: 0.7rem;
+        }
+        .highlight-list li {
+            margin: 0.4rem 0;
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+        }
+        .highlight-list li i {
+            color: #b87c2e;
+        }
+
+        /* footer */
+        footer {
+            background: #0c0b0a;
+            color: #cccbc7;
+            padding: 2rem 2rem 1rem;
+            margin-top: 3rem;
+        }
+        .footer-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .footer-col h4 {
+            color: #e4b77d;
+            margin-bottom: 1rem;
+        }
+        .footer-col a {
+            color: #b0aa9e;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+        .footer-col a:hover {
+            color: #e4b77d;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 0.8rem;
+        }
+        .social-icons a {
+            background: #2a2622;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #e4b77d;
+            transition: 0.25s;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            transform: translateY(-5px);
+            background: #b87c2e;
+            color: white;
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            font-size: 0.8rem;
+            border-top: 1px solid #2f2b26;
+            margin-top: 2rem;
+        }
+        .copyright a {
+            color: #e4b77d;
+            text-decoration: none;
+        }
+
+        .btn-sm {
+            background: #b87c2e;
+            border: none;
+            padding: 10px 22px;
+            border-radius: 40px;
+            font-weight: 500;
+            color: white;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: 0.2s;
+            display: inline-block;
+            margin-top: 0.8rem;
+        }
+        .btn-sm:hover {
+            background: #9b6522;
+            transform: translateY(-2px);
+        }
+
+        .floating-contact {
+            position: fixed;
+            bottom: 25px;
+            right: 20px;
+            background: #b87c2e;
+            border-radius: 50px;
+            padding: 12px 22px;
+            color: white;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+            cursor: pointer;
+            z-index: 99;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: none;
+            transition: 0.2s;
+        }
+        .floating-contact:hover {
+            background: #9b6522;
+            transform: scale(1.03);
+        }
+
+        /* responsive */
+        @media (max-width: 850px) {
+            .menu-icon {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #1e1b17;
+                padding: 1.2rem;
+                border-radius: 1.2rem;
+                margin-top: 0.8rem;
+                gap: 1rem;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li a {
+                display: block;
+                padding: 0.5rem 0;
+            }
+            .header-flex {
+                flex-wrap: wrap;
+            }
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .location-group {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.8rem;
+            }
+            .services-grid {
+                flex-direction: row;
+                gap: 2rem;
+            }
+            .service-card {
+                flex: 1;
+            }
+            .hero {
+                padding: 3rem 2rem;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+        }
+
+        @media (max-width: 550px) {
+            .container {
+                padding: 1rem;
+            }
+            .location-name {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header class="site-header">
+    <div class="header-flex">
+        <div class="logo-area">
+            <img src="img/logo (3).png" alt="NEXZO logo" style="height: 60px; border-radius: 30px;" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 210 65\'%3E%3Crect width=\'210\' height=\'65\' fill=\'%231d1915\' rx=\'14\'/%3E%3Ctext x=\'18\' y=\'44\' font-family=\'system-ui\' font-weight=\'800\' font-size=\'32\' fill=\'%23e4b77d\'%3EN%3C/text%3E%3Ctext x=\'45\' y=\'44\' font-size=\'27\' fill=\'%23d6b17e\'%3ENEXZO%3C/text%3E%3C/svg%3E';">
+        </div>
+        <button class="menu-icon" id="menuToggle" aria-label="Menu">☰</button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="elevators.html">Elevators</a></li>
+            <li><a href="interiors.html">Interiors</a></li>
+            <li><a href="service.html" class="active">Areas</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <!-- Hero intro -->
+        <div class="hero">
+            <h1><i class="fas fa-building"></i> Elevators & Interiors<br>across Telangana & beyond</h1>
+            <p>Trusted elevator installation, modernization, and premium interior design services in Hyderabad, Nagar Kurnool, Narayanapeta, Maktal, Shad Nagar, Jadcherla, Warangal, and surrounding regions. Residential & commercial experts.</p>
+        </div>
+
+        <!-- service locations -->
+        <div class="section-title"><i class="fas fa-map-marker-alt"></i> Our service footprints</div>
+        <div class="location-group">
+            <div class="location-block">
+                <div class="location-name"><i class="fas fa-city"></i> Hyderabad</div>
+                <div class="service-badges"><span class="badge">Home elevators</span><span class="badge">panoramic lifts</span><span class="badge">luxury interiors</span></div>
+                <div class="location-desc">
+                    <p>NEXZO provides state-of-the-art elevator installation and complete interior fit-outs across Hyderabad — from Gachibowli to Banjara Hills. We specialize in high-speed passenger lifts, machine-room-less elevators, and custom cabin designs. Our interior division transforms villas, apartments, and commercial spaces with modular kitchens, false ceilings, and smart storage. 24/7 AMC and emergency support available.</p>
+                </div>
+            </div>
+            <div class="location-block">
+                <div class="location-name"><i class="fas fa-hospital-user"></i> Nagar Kurnool</div>
+                <div class="service-badges"><span class="badge">Hydraulic lifts</span><span class="badge">hospital elevators</span><span class="badge">office interiors</span></div>
+                <div class="location-desc">
+                    <p>In Nagar Kurnool, we are the preferred partner for reliable hydraulic elevators and traction lifts for hospitals, banks, and residential complexes. Our interior services include wall paneling, flooring solutions, and complete turnkey projects for new constructions. We also offer annual maintenance contracts ensuring zero downtime for commercial properties.</p>
+                </div>
+            </div>
+            <div class="location-block">
+                <div class="location-name"><i class="fas fa-home"></i> Narayanapeta</div>
+                <div class="service-badges"><span class="badge">compact lifts</span><span class="badge">home interiors</span><span class="badge">wardrobes</span></div>
+                <div class="location-desc">
+                    <p>For Narayanapeta, we deliver space-saving home elevators and customized interior design packages. Whether it's a 2-stop residential lift or complete living room makeover, NEXZO ensures quick installation (within 20 days) and premium quality materials. Our team also offers modular kitchen solutions and TV unit designs tailored to local tastes.</p>
+                </div>
+            </div>
+            <div class="location-block">
+                <div class="location-name"><i class="fas fa-warehouse"></i> Maktal</div>
+                <div class="service-badges"><span class="badge">goods lifts</span><span class="badge">industrial elevators</span><span class="badge">office partitions</span></div>
+                <div class="location-desc">
+                    <p>NEXZO serves Maktal with heavy-duty goods elevators, industrial lifts, and stylish office interiors. We collaborate with local businesses to integrate efficient vertical transport and ergonomic workspace designs. Our service package includes installation, load testing, and interior partitions to maximize workflow and aesthetics.</p>
+                </div>
+            </div>
+            <div class="location-block">
+                <div class="location-name"><i class="fas fa-tree"></i> Shad Nagar</div>
+                <div class="service-badges"><span class="badge">panoramic elevators</span><span class="badge">gated community lifts</span><span class="badge">modular kitchens</span></div>
+                <div class="location-desc">
+                    <p>In Shad Nagar, we are known for elegant panoramic elevators and modern interior renovations for gated communities and independent houses. Our turnkey solutions include POP design, lighting automation, and complete bathroom renovations. Plus, we provide attractive combo packages for "elevator + full home interiors".</p>
+                </div>
+            </div>
+            <div class="location-block">
+                <div class="location-name"><i class="fas fa-hotel"></i> Jadcherla</div>
+                <div class="service-badges"><span class="badge">retrofit lifts</span><span class="badge">hotel interiors</span><span class="badge">showroom design</span></div>
+                <div class="location-desc">
+                    <p>For Jadcherla, NEXZO excels at elevator modernization, retrofitting old shafts with energy-efficient lifts, and complete interior makeovers for hotels, showrooms, and retail stores. Our creative team delivers contemporary wall treatments, reception designs, and commercial lobby interiors that elevate brand presence.</p>
+                </div>
+            </div>
+            <div class="location-block">
+                <div class="location-name"><i class="fas fa-landmark"></i> Warangal</div>
+                <div class="service-badges"><span class="badge">high-speed lifts</span><span class="badge">luxury apartment elevators</span><span class="badge">penthouse interiors</span></div>
+                <div class="location-desc">
+                    <p>NEXZO's presence in Warangal includes high-speed passenger elevators for commercial towers and luxury residential projects. We also specialize in premium penthouse interiors — from false ceiling designs, wooden flooring to sophisticated lighting. With our local service hub, we guarantee quick response and genuine spare parts support.</p>
+                </div>
+            </div>
+            <div class="location-block">
+                <div class="location-name"><i class="fas fa-globe-asia"></i> Mahabubnagar & beyond</div>
+                <div class="service-badges"><span class="badge">24/7 support</span><span class="badge">AMC plans</span><span class="badge">new installations</span></div>
+                <div class="location-desc">
+                    <p>As our headquarters, Mahabubnagar benefits from rapid elevator installation and interior execution. Additionally, NEXZO covers nearby regions including Wanaparthy, Kollapur, and Gadwal. We specialize in establishing new elevators in under-construction buildings, free site evaluation, and affordable annual maintenance contracts for both elevators and interiors. Wherever you are in Telangana, we bring premium craftsmanship to your doorstep.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- elevator & interior expertise -->
+        <div class="section-title"><i class="fas fa-cogs"></i> What we deliver — elevators & interiors</div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3><i class="fas fa-elevator"></i> Elevator Solutions</h3>
+                <p>NEXZO provides complete elevator engineering: from hydraulic and traction lifts to machine-room-less and panoramic glass elevators. We serve residential apartments, independent villas, hospitals, malls, and corporate towers across all our locations. Our elevators come with VVVF drives, emergency rescue systems, and customizable cabin finishes (wood, steel, glass, LED mood lighting).</p>
+                <ul class="highlight-list">
+                    <li><i class="fas fa-check-circle"></i> New elevator installations in Hyderabad, Warangal, Nagar Kurnool</li>
+                    <li><i class="fas fa-check-circle"></i> Modernization & retrofitting for old shafts (Jadcherla, Maktal)</li>
+                    <li><i class="fas fa-check-circle"></i> Annual maintenance contracts with 24/7 emergency service</li>
+                </ul>
+                <button class="btn-sm" onclick="alert('📞 Call us for elevator quote: +91 91778 02660')">Request quote →</button>
+            </div>
+            <div class="service-card">
+                <h3><i class="fas fa-couch"></i> Interior Design & Fit-outs</h3>
+                <p>Our interior division creates cohesive, stylish, and functional spaces. From modular kitchens to luxury wardrobes, false ceilings, TV units, and full residential/commercial makeovers — we blend modern trends with local preferences. We work in all listed locations, delivering 3D visualizations, material selection, and end-to-end project management.</p>
+                <ul class="highlight-list">
+                    <li><i class="fas fa-check-circle"></i> Turnkey interiors for apartments & villas (Hyderabad, Shad Nagar)</li>
+                    <li><i class="fas fa-check-circle"></i> Office partitions, reception desks & corporate interiors</li>
+                    <li><i class="fas fa-check-circle"></i> Fast execution with premium finish & warranty</li>
+                </ul>
+                <button class="btn-sm" onclick="alert('🏠 Book free interior consultation for your home/shop in your city!')">Design consultation →</button>
+            </div>
+        </div>
+
+        <!-- establishing new projects section -->
+        <div style="background: #f9f2e9; border-radius: 1.6rem; padding: 1.5rem; margin: 2rem 0;">
+            <h3 style="display: flex; gap: 8px; align-items: center; font-size: 1.35rem;"><i class="fas fa-hard-hat" style="color:#b87c2e;"></i> Establishing new elevators & interiors – from concept to completion</h3>
+            <p style="margin-top: 0.6rem;">NEXZO is actively setting up new elevator installations and complete interior packages for under-construction buildings across <strong>Hyderabad, Warangal, Narayanapeta, Maktal, Shad Nagar, Jadcherla, Nagar Kurnool and Mahabubnagar</strong>. We assist builders, architects, and homeowners right from the blueprint stage — ensuring optimized shaft design, cost-effective interior layouts, and seamless integration. Whether it's a 4-stop commercial lift in Jadcherla or a full villa interior in Warangal, our team delivers turnkey solutions with transparency and timeline commitment. Get in touch to discuss your upcoming project.</p>
+            <button class="btn-sm" style="margin-top: 1rem;" onclick="alert('📋 Share your project location & requirements. Our team will contact you within 2 hours.')">Start new project →</button>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-col">
+            <h4>NEXZO ELEVATORS & INTERIORS</h4>
+            <p>Innovation in motion & design since 2012. Premium quality, timeless aesthetics.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/nexzo_elevators_interiors/?utm_source=chatgpt.com" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://wa.me/917780266049?utm_source=chatgpt.com" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-col">
+            <h4>Quick Links</h4>
+            <p><a href="index.html">Home</a></p>
+            <p><a href="about.html">About</a></p>
+            <p><a href="gallery.html">Gallery</a></p>
+            <p><a href="contact.html">Contact</a></p>
+        </div>
+        <div class="footer-col">
+            <h4>Our Expertise</h4>
+            <p>✓ Residential Elevators</p>
+            <p>✓ Commercial Lifts</p>
+            <p>✓ Interior Fit-Outs</p>
+            <p>✓ AMC & Maintenance</p>
+        </div>
+        <div class="footer-col">
+            <h4>Reach Us</h4>
+            <p>📍 1-4-98/5/1, New Town Mahabubnagar,<br>Telangana State - 509001.</p>
+            <p>📞 +91 91778 02660</p>
+            <p>✉️ nexzo.2446@gmail.com</p>
+        </div>
+    </div>
+    <div class="copyright">
+        © 2026 NEXZO Elevators & Interiors | Crafted for seamless luxury mobility & design. All rights reserved. | <a href="https://babluhosters.com/" target="_blank">Bablu Hosters</a>
+    </div>
+</footer>
+
+
+
+<script>
+    // Mobile menu toggle - fixed properly
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (menuToggle) {
+        menuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            navLinks.classList.toggle('active');
+        });
+    }
+    
+    // Close menu when clicking on a link (mobile)
+    const navItems = document.querySelectorAll('.nav-links a');
+    navItems.forEach(link => {
+        link.addEventListener('click', function() {
+            if (window.innerWidth <= 850) {
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+    
+    // Close menu when clicking outside (optional)
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 850) {
+            const isClickInsideNav = navLinks.contains(event.target);
+            const isClickOnMenu = menuToggle.contains(event.target);
+            if (!isClickInsideNav && !isClickOnMenu && navLinks.classList.contains('active')) {
+                navLinks.classList.remove('active');
+            }
+        }
+    });
+    
+    // Handle window resize - reset menu if screen becomes desktop
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 850) {
+            navLinks.classList.remove('active');
+        }
+    });
+</script>
+</body>
+</html>
